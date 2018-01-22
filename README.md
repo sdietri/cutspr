@@ -1,8 +1,7 @@
 # CutSPR
+CutSPR is a tool that assists the construction of a mutagenesis vector based on the pJoe8999 plasmid system.
 
-CutSPR is a tool that assists with the construction of deletion or insertion cassettes using the CRISPR-Cas system. 
-
-It uses genomic references in form of GenBank or Fasta formatted sequence files and generates primers to be used for either deletion or insertion cassettes.
+It uses genomic references in the form of GenBank or Fasta formatted sequence files to generate primers for the construction of a specific CRISPR-Cas9 based deletion or insertion vector.
 
 
 CutSPR is written in Python and requires the following packages:
