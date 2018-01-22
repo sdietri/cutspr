@@ -1,0 +1,1704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CutSPR</class>
+ <widget class="QMainWindow" name="CutSPR">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>823</width>
+    <height>949</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CutSPR</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="IntroductionPage">
+       <property name="maximumSize">
+        <size>
+         <width>800</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <attribute name="title">
+        <string>Welcome</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMinimumSize</enum>
+        </property>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetNoConstraint</enum>
+          </property>
+          <item>
+           <widget class="QTextBrowser" name="textBrowser">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>130</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Welcome&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Thank you for using CutSPR. This Tool allows you to design all primers needed to create a specific CRISPR-Cas9 based vector for the engineering of &lt;span style=&quot; font-style:italic;&quot;&gt;B. subtilis &lt;/span&gt;or its viruses. The generated primers are designated for the use with the pJOE8999 plasmid system created by Dr. Josef Altenbuchner. It may also be helpful with similar systems as most parameters can be freely modified.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="CQlabel" name="sgRNAHeader">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::WinPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <property name="text">
+             <string>1. sgRNA Spacer Sequence</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="sgRNAdesc">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>10</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>140</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::AdjustToContents</enum>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;sgRNA Spacer Sequence&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Provided with the genome sequences of the host, the virus (if any), and the gene locus to be edited, CutSPR finds unique spacer sequences. Candidates are verified against the genetic background to ensure specificity to the desired target. After selection of the desired spacer sequence CutSPR generates primers for the creation of a specific sgRNA. The PAM sequence, spacer length and primer extension can be freely modified, which may be of interest for systems different from the designated. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="CQlabel" name="indelCassHeader">
+            <property name="frameShape">
+             <enum>QFrame::WinPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <property name="text">
+             <string>2. Deletion or Insertion Cassettes</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="CQlabel" name="vecConstHeader">
+            <property name="frameShape">
+             <enum>QFrame::WinPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <property name="text">
+             <string>3. Vector Construction</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="indelCassDesc">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Deletion- or Insertion-Cassettes&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;A recombination cassette is designed from the genomic surrounding of the deletion target. In case an insertion is required a desired sequence can be provided. CutSPR generates all required primers and extends them with homolog regions to allow fusing of the fragments via PCR. The exterior primers of the recombination cassette are extended with restriction sides to enable cloning in to the SfiI processed vector. The size of each flank and the extensions of the outer primers can be freely modified.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="vecConstDesc">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>130</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Vector Construction&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;After all parameters are defined CutSPR will provide working instructions of how to use the generated primers and create the desired CRISPR-Cas9 base mutagenesis vector. It will also give information on how to introduce this vector to the working strain &lt;span style=&quot; font-style:italic;&quot;&gt;B. subtilis&lt;/span&gt; TS01 and create the desired mutant.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>80</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_29">
+            <property name="text">
+             <string>For more information about this application, please visit:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_31">
+            <property name="text">
+             <string>&lt;a href=&quot;http://appmibio.uni-goettingen.de/index.php?sec=sw&quot;&gt;G2L CutSPR website&lt;/a&gt;</string>
+            </property>
+            <property name="openExternalLinks">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="gsRNAsearch">
+       <attribute name="title">
+        <string>1. sgRNA Spacer Sequence</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Reference genome (host and virus) as GBK, fasta or EMBL:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+          <item>
+           <widget class="QPushButton" name="fileSelectionButton">
+            <property name="text">
+             <string>Select Files...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="refGenFiles">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Deletion target sequence:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+          <item>
+           <widget class="QPlainTextEdit" name="deletionTargetSeq">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>200</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Monospace</family>
+             </font>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>PAM pattern</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="PAMpattern">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>NGG</string>
+              </property>
+              <property name="maxLength">
+               <number>3</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_30">
+              <property name="text">
+               <string>Target in BP:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="targetLength">
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="inputMask">
+               <string>99</string>
+              </property>
+              <property name="text">
+               <string>20</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Minimum</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>140</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMaximumSize</enum>
+          </property>
+          <item>
+           <widget class="QPushButton" name="cutRun">
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Search Spacer Sequence</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Select desired spacer sequence from results:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_43">
+              <property name="text">
+               <string>Sequence</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_42">
+              <property name="text">
+               <string>Percent similarity of secondary hit in genome (lower = better)</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QListWidget" name="resultsList">
+            <property name="movement">
+             <enum>QListView::Static</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="cloningSitesgRNA">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Choose cloning sites</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_27">
+            <property name="text">
+             <string>Default vector pJOE8999 (change if necessary)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="cassetteDesign">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <attribute name="title">
+        <string>2. Deletion or Insertion Cassettes</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Enter sequence to insert (optional):</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="insertSeq">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>200</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_12"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+          <item>
+           <widget class="QPushButton" name="cloningSiteRecomb">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="text">
+             <string>Choose cloning restriction site</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_28">
+            <property name="text">
+             <string>Default vector pJOE8999 (change if necessary)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_32">
+          <property name="text">
+           <string>Flank sizes (bases)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <item row="1" column="0">
+           <widget class="QLineEdit" name="flankBSize">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="inputMask">
+             <string>9999</string>
+            </property>
+            <property name="text">
+             <string>700</string>
+            </property>
+            <property name="cursorPosition">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_40">
+            <property name="text">
+             <string>FlankA target size</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLineEdit" name="flankASize">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="inputMask">
+             <string>9999</string>
+            </property>
+            <property name="text">
+             <string>700</string>
+            </property>
+            <property name="cursorPosition">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_41">
+            <property name="text">
+             <string>FlankB target size</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="circularTargetCheck">
+          <property name="text">
+           <string>Is target replicon circular?</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="cassetteMsgBox">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="workingProtocol">
+       <attribute name="title">
+        <string>3. Vector Construction</string>
+       </attribute>
+       <widget class="QWidget" name="verticalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>801</width>
+          <height>440</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <property name="sizeConstraint">
+          <enum>QLayout::SetDefaultConstraint</enum>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_46">
+             <property name="text">
+              <string>Sequence</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_44">
+             <property name="text">
+              <string>Melting temp. in °C (overhang for recombination primers | primer)</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="margin">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QListWidget" name="primerList">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>280</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>280</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_26">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>        1,2: sgRNA primer</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QStackedWidget" name="insertStyleSwapper">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="currentIndex">
+            <number>1</number>
+           </property>
+           <widget class="QWidget" name="page">
+            <widget class="Line" name="line">
+             <property name="geometry">
+              <rect>
+               <x>30</x>
+               <y>40</y>
+               <width>231</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>2</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_2">
+             <property name="geometry">
+              <rect>
+               <x>30</x>
+               <y>30</y>
+               <width>31</width>
+               <height>20</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_6">
+             <property name="geometry">
+              <rect>
+               <x>60</x>
+               <y>30</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&gt;</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_7">
+             <property name="geometry">
+              <rect>
+               <x>44</x>
+               <y>20</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>3</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_3">
+             <property name="geometry">
+              <rect>
+               <x>420</x>
+               <y>40</y>
+               <width>191</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>2</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_4">
+             <property name="geometry">
+              <rect>
+               <x>250</x>
+               <y>30</y>
+               <width>31</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_8">
+             <property name="geometry">
+              <rect>
+               <x>280</x>
+               <y>30</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&gt;</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_5">
+             <property name="geometry">
+              <rect>
+               <x>250</x>
+               <y>50</y>
+               <width>31</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_9">
+             <property name="geometry">
+              <rect>
+               <x>244</x>
+               <y>50</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&lt;</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_6">
+             <property name="geometry">
+              <rect>
+               <x>570</x>
+               <y>50</y>
+               <width>31</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_10">
+             <property name="geometry">
+              <rect>
+               <x>564</x>
+               <y>50</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&lt;</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_11">
+             <property name="geometry">
+              <rect>
+               <x>260</x>
+               <y>60</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>4</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_12">
+             <property name="geometry">
+              <rect>
+               <x>260</x>
+               <y>20</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>5</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_13">
+             <property name="geometry">
+              <rect>
+               <x>584</x>
+               <y>60</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>8</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_13">
+             <property name="geometry">
+              <rect>
+               <x>390</x>
+               <y>50</y>
+               <width>31</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_22">
+             <property name="geometry">
+              <rect>
+               <x>420</x>
+               <y>50</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&gt;</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_23">
+             <property name="geometry">
+              <rect>
+               <x>400</x>
+               <y>60</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>7</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_14">
+             <property name="geometry">
+              <rect>
+               <x>396</x>
+               <y>30</y>
+               <width>31</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_24">
+             <property name="geometry">
+              <rect>
+               <x>406</x>
+               <y>20</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>6</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_25">
+             <property name="geometry">
+              <rect>
+               <x>390</x>
+               <y>30</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&lt;</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_15">
+             <property name="geometry">
+              <rect>
+               <x>270</x>
+               <y>40</y>
+               <width>141</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 170, 0);</string>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>2</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_35">
+             <property name="geometry">
+              <rect>
+               <x>130</x>
+               <y>20</y>
+               <width>59</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>FlankA</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_36">
+             <property name="geometry">
+              <rect>
+               <x>490</x>
+               <y>20</y>
+               <width>59</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>FlankB</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_37">
+             <property name="geometry">
+              <rect>
+               <x>320</x>
+               <y>20</y>
+               <width>59</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>Insert</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_38">
+             <property name="geometry">
+              <rect>
+               <x>200</x>
+               <y>0</y>
+               <width>71</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>Fragment C</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_17">
+             <property name="geometry">
+              <rect>
+               <x>250</x>
+               <y>70</y>
+               <width>361</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(240, 0, 0);</string>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>2</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_39">
+             <property name="geometry">
+              <rect>
+               <x>380</x>
+               <y>80</y>
+               <width>71</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>Fragment D</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_16">
+             <property name="geometry">
+              <rect>
+               <x>30</x>
+               <y>10</y>
+               <width>381</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(240, 0, 0);</string>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>2</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="page_2">
+            <widget class="Line" name="line_7">
+             <property name="geometry">
+              <rect>
+               <x>566</x>
+               <y>60</y>
+               <width>31</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_8">
+             <property name="geometry">
+              <rect>
+               <x>300</x>
+               <y>40</y>
+               <width>31</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_14">
+             <property name="geometry">
+              <rect>
+               <x>580</x>
+               <y>70</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>6</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_9">
+             <property name="geometry">
+              <rect>
+               <x>300</x>
+               <y>60</y>
+               <width>31</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_15">
+             <property name="geometry">
+              <rect>
+               <x>560</x>
+               <y>60</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&lt;</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_16">
+             <property name="geometry">
+              <rect>
+               <x>330</x>
+               <y>40</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&gt;</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_17">
+             <property name="geometry">
+              <rect>
+               <x>310</x>
+               <y>30</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>5</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_10">
+             <property name="geometry">
+              <rect>
+               <x>30</x>
+               <y>40</y>
+               <width>31</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_18">
+             <property name="geometry">
+              <rect>
+               <x>310</x>
+               <y>70</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>4</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_11">
+             <property name="geometry">
+              <rect>
+               <x>320</x>
+               <y>50</y>
+               <width>281</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>2</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_19">
+             <property name="geometry">
+              <rect>
+               <x>60</x>
+               <y>40</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&gt;</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_20">
+             <property name="geometry">
+              <rect>
+               <x>40</x>
+               <y>30</y>
+               <width>51</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>3</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_21">
+             <property name="geometry">
+              <rect>
+               <x>294</x>
+               <y>60</y>
+               <width>16</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>&lt;</string>
+             </property>
+            </widget>
+            <widget class="Line" name="line_12">
+             <property name="geometry">
+              <rect>
+               <x>30</x>
+               <y>50</y>
+               <width>281</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>2</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_33">
+             <property name="geometry">
+              <rect>
+               <x>150</x>
+               <y>20</y>
+               <width>59</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>FlankA</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_34">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>20</y>
+               <width>59</width>
+               <height>14</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>FlankB</string>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Minimum</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>10</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QStackedWidget" name="protocolSwapper">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>430</y>
+          <width>801</width>
+          <height>431</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="page_3">
+         <widget class="QTextEdit" name="protocol_deletion">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>801</width>
+            <height>421</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="lineWrapMode">
+           <enum>QTextEdit::WidgetWidth</enum>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%; page-break-before:always;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:14pt; font-weight:600; color:#000000;&quot;&gt;Vector Construction (Deletion)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Note&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;We will not present exact recipes for the mentioned enzymatic reactions, PCRs or purification steps, as many paths lead to success. Thus, we recommend to study and accurately follow the manufacturer’s instructions of the enzymes and kits present in your lab.&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the sgRNA&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Adjust primer 1 and 2 to a final concentration of 5 µM. Mix 10 µl of each primer and incubate for 30-60 min at room temperature. Digest ~1 µg of empty vector with BsaI endonuclease. It will result in two fragments. One with a size of ~7.4 kb and another with 371 bp. Purify the bigger fragment via gel-extraction. Ligate about 40 ng of the prepared vector with 1 µl of the primer hybridization using T4-DNA-Ligase. Use the ligation reaction to directly transform chemical competent &lt;span style=&quot; font-style:italic;&quot;&gt;E. coli&lt;/span&gt; cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease EcoRI or BsaI. In case of an empty vector EcoRI will result in three fragments (~3.2 kb, ~4 kb and 200 bp), whereas BsaI will result in two as described above. In case of the desired construct EcoRI digestion results in two fragments (~3 kb and 4 kb) and BsaI has no effect. Positive candidates can be further verified via Sanger sequencing using primer RH003 (5’ACCGAGCGTTCTGAACAAATCC).&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the Deletion-Cassettes&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Amplify the flanks of the target locus by PCR with the respective primers (Primer3 and Primer4 for Flank A&lt;span style=&quot; color:#0070c0;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;and Primer 5 and Primer 6 for Flank B&lt;/span&gt;) from your target genome, setting the annealing temperature to 54°C. Use a high fidelity DNA polymerase with proof-reading activity. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Verify your PCR products via agarose gel electrophoresis and purify them. Dilute the DNA to a concentration of 0.1 ng/µl. Mix 10 µl of each diluted amplification product and use 1 µl of this mixture as template for PCR with Primer 3 and Primer &lt;span style=&quot; color:#000000;&quot;&gt;6&lt;/span&gt; to create the &lt;span style=&quot; color:#000000;&quot;&gt;deletion&lt;/span&gt;&lt;span style=&quot; color:#0070c0;&quot;&gt;-&lt;/span&gt;cassette. Set the annealing temperature to 54°C. Verify the PCR product via gel-electrophoresis. It should reveal a combined product size of both flanks. Purify the PCR product and digest it with SfiI endonuclease. In parallel digest the sgRNA containing vector with SfiI. Purify the linearized 7.4 kb vector via gel- extraction. Use 40 ng of the processed vector and ligate it with the deletion cassette using the T4-DNA-Ligase (~&lt;span style=&quot; color:#000000;&quot;&gt;40&lt;/span&gt; ng in case of a ~&lt;span style=&quot; color:#000000;&quot;&gt;1&lt;/span&gt;.5 kb &lt;span style=&quot; color:#000000;&quot;&gt;deletion&lt;/span&gt;-cassette). Use the ligation reaction to directly transform chemically competent &lt;span style=&quot; font-style:italic;&quot;&gt;E. coli&lt;/span&gt; cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease SalI-XbaI or SfiI. A positive construct should release the recombination-cassette, visible as a separate band in an agarose gel. Verify sequence of your deletion cassette via Sanger sequencing using primer RH001 (&lt;span style=&quot; font-size:10pt;&quot;&gt;AGCTTAGGCCCAGTCGAAAG&lt;/span&gt;), RH002 (&lt;span style=&quot; font-size:10pt;&quot;&gt;CAGCTAGGAGGTGACTGAAG&lt;/span&gt;) and if necessary further primer used for construction.&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Transformation of &lt;/span&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; font-style:italic; color:#000000;&quot;&gt;B. subtilis&lt;/span&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt; TS01&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Inoculate a 10 ml LB medium in a 100 ml conical flask to an OD&lt;span style=&quot; vertical-align:sub;&quot;&gt;600&lt;/span&gt; of 0.1 with an overnight culture of &lt;span style=&quot; font-style:italic;&quot;&gt;B. subtilis&lt;/span&gt; TS01 and incubate it at 37°C for 90 min under vigorous shaking. Subsequently supplement the culture with &lt;span style=&quot; font-variant:small-caps;&quot;&gt;d&lt;/span&gt;-mannitol to a final concentration of 0.5% (w/v) and culture it for further 90 min. Pellet cell at 3500 g and 4°C for 5 min and wash them twice with 10 ml of ice cold LB medium. Set the cell suspension to an OD&lt;span style=&quot; vertical-align:sub;&quot;&gt;600&lt;/span&gt; of 0.5. Mix vector DNA (100 ng) with 1 ml of competent cells in a 15 ml sterile tube and incubate for 60 min at 30°C on a roller drum. Plate cells on selective LB agar plates supplemented with 25 µg/ml Kanamycin and incubate for ~16 h at 30°C.&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Phage genetic modification&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Culture a clone of &lt;span style=&quot; font-style:italic;&quot;&gt;B. subtilis&lt;/span&gt; TS01 harboring a CRISPR-Cas9 mutagenesis vector in liquid LB medium supplemented with 25 µg/ml Kanamycin for ~16 h. Incubate 100 µl of cells with 100 µl phage suspension for 5 min to ensure infection, mix with 2 ml pre-warmed (50°C) overlay agar and plate on LB medium plates supplemented with D-mannose (0.2% w/v). Pick a few resulting plaques with a sterile toothpick and placed into 500 µl sterile LB medium for 10 min. Use this phage suspensions for a plaque assay with &lt;span style=&quot; font-style:italic;&quot;&gt;B. subtilis&lt;/span&gt; TS01 to achieve further separation of the isolates. Pick a few plaques again and generate LB phage suspension. Use 1 µl of these suspensions as template for PCR with Primer 3 and Primer 6. Set the annealing temperature to 54°C. Verify the PCR product via gel-electrophoresis and select the clone with the desired genotype.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="page_4">
+         <widget class="QTextEdit" name="protocol_insertion">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>801</width>
+            <height>421</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="lineWrapMode">
+           <enum>QTextEdit::WidgetWidth</enum>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%; page-break-before:always;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:14pt; font-weight:600; color:#000000;&quot;&gt;Vector Construction (Insertion)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Note&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;We will not present exact recipes for the mentioned enzymatic reactions, PCRs or purification steps, as many paths lead to success. Thus, we recommend to study and accurately follow the manufacturer’s instructions of the enzymes and kits present in your lab.&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the sgRNA&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Adjust primer 1 and 2 to a final concentration of 5 µM. Mix 10 µl of each primer and incubate for 30-60 min at room temperature. Digest ~1 µg of empty vector with BsaI endonuclease. It will result in two fragments. One with a size of ~7.4 kb and another with 371 bp. Purify the bigger fragment via gel-extraction. Ligate about 40 ng of the prepared vector with 1 µl of the primer hybridization using T4-DNA-Ligase. Use the ligation reaction to directly transform chemical competent &lt;span style=&quot; font-style:italic;&quot;&gt;E. coli&lt;/span&gt; cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease EcoRI or BsaI. In case of an empty vector EcoRI will result in three fragments (~3.2 kb, ~4 kb and 200 bp), whereas BsaI will result in two as described above. In case of the desired construct EcoRI digestion results in two fragments (~3 kb and 4 kb) and BsaI has no effect. Positive candidates can be further verified via Sanger sequencing using primer RH003 (5’ACCGAGCGTTCTGAACAAATCC).&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the Insertion-Cassettes&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Amplify the flanks of the target locus by PCR with the respective primers (Primer3 and Primer4 for Flank A, Primer5 and Primer6 &lt;span style=&quot; color:#000000;&quot;&gt;for insertion-fragment and Primer 7 and Primer 8 for Flank B&lt;/span&gt;) from your target genome, setting the annealing temperature to 54°C. Use a high fidelity DNA polymerase with proof-reading activity. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Verify your PCR products via agarose gel electrophoresis and purify them. Dilute the DNA to a concentration of 0.1 ng/µl. Mix 10 µl of each diluted amplification product and use 1 µl of this mixture as template for PCR with Primer 3 and Primer &lt;span style=&quot; color:#000000;&quot;&gt;8&lt;/span&gt; to create the &lt;span style=&quot; color:#000000;&quot;&gt;insertion&lt;/span&gt;&lt;span style=&quot; color:#0070c0;&quot;&gt;-&lt;/span&gt;cassette. Set the annealing temperature to 54°C. Verify the PCR product via gel-electrophoresis. It should reveal a combined product size of both flanks &lt;span style=&quot; color:#000000;&quot;&gt;and the insertion-fragment&lt;/span&gt;. Purify the PCR product and digest it with SfiI endonuclease. In parallel digest the sgRNA containing vector with SfiI. Purify the linearized 7.4 kb vector via gel- extraction. Use 40 ng of the processed vector and ligate it with the &lt;span style=&quot; color:#000000;&quot;&gt;insertion&lt;/span&gt;-cassette using the T4-DNA-Ligase (~&lt;span style=&quot; color:#000000;&quot;&gt;60&lt;/span&gt; ng in case of a ~&lt;span style=&quot; color:#000000;&quot;&gt;2&lt;/span&gt;.5 kb &lt;span style=&quot; color:#000000;&quot;&gt;insertion&lt;/span&gt;-cassette). Use the ligation reaction to directly transform chemically competent &lt;span style=&quot; font-style:italic;&quot;&gt;E. coli&lt;/span&gt; cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease SalI-XbaI or SfiI. A positive construct should release the recombination-cassette, visible as a separate band in an agarose gel. Verify sequence of your deletion cassette via Sanger sequencing using primer RH001 (&lt;span style=&quot; font-size:10pt;&quot;&gt;AGCTTAGGCCCAGTCGAAAG&lt;/span&gt;), RH002 (&lt;span style=&quot; font-size:10pt;&quot;&gt;CAGCTAGGAGGTGACTGAAG&lt;/span&gt;) and if necessary further primer used for construction.&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Transformation of &lt;/span&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; font-style:italic; color:#000000;&quot;&gt;B. subtilis&lt;/span&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt; TS01&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Inoculate a 10 ml LB medium in a 100 ml conical flask to an OD&lt;span style=&quot; vertical-align:sub;&quot;&gt;600&lt;/span&gt; of 0.1 with an overnight culture of &lt;span style=&quot; font-style:italic;&quot;&gt;B. subtilis&lt;/span&gt; TS01 and incubate it at 37°C for 90 min under vigorous shaking. Subsequently supplement the culture with &lt;span style=&quot; font-variant:small-caps;&quot;&gt;d&lt;/span&gt;-mannitol to a final concentration of 0.5% (w/v) and culture it for further 90 min. Pellet cell at 3500 g and 4°C for 5 min and wash them twice with 10 ml of ice cold LB medium. Set the cell suspension to an OD&lt;span style=&quot; vertical-align:sub;&quot;&gt;600&lt;/span&gt; of 0.5. Mix vector DNA (100 ng) with 1 ml of competent cells in a 15 ml sterile tube and incubate for 60 min at 30°C on a roller drum. Plate cells on selective LB agar plates supplemented with 25 µg/ml Kanamycin and incubate for ~16 h at 30°C.&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Phage genetic modification&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Culture a clone of &lt;span style=&quot; font-style:italic;&quot;&gt;B. subtilis&lt;/span&gt; TS01 harboring a CRISPR-Cas9 mutagenesis vector in liquid LB medium supplemented with 25 µg/ml Kanamycin for ~16 h. Incubate 100 µl of cells with 100 µl phage suspension for 5 min to ensure infection, mix with 2 ml pre-warmed (50°C) overlay agar and plate on LB medium plates supplemented with D-mannose (0.2% w/v). Pick a few resulting plaques with a sterile toothpick and placed into 500 µl sterile LB medium for 10 min. Use this phage suspensions for a plaque assay with &lt;span style=&quot; font-style:italic;&quot;&gt;B. subtilis&lt;/span&gt; TS01 to achieve further separation of the isolates. Pick a few plaques again and generate LB phage suspension. Use 1 µl of these suspensions as template for PCR with Primer 3 and Primer &lt;span style=&quot; color:#000000;&quot;&gt;8&lt;/span&gt;. Set the annealing temperature to 54°C. Verify the PCR product via gel-electrophoresis and select the clone with the desired genotype.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>823</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuBLAST_config">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionBLAST_executables"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionContact"/>
+   </widget>
+   <addaction name="menuBLAST_config"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionBLAST_executables">
+   <property name="text">
+    <string>BLAST executables</string>
+   </property>
+  </action>
+  <action name="actionHow_to_use">
+   <property name="text">
+    <string>Reference/Citing</string>
+   </property>
+  </action>
+  <action name="actionContact">
+   <property name="text">
+    <string>Contact</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CQlabel</class>
+   <extends>QLabel</extends>
+   <header>.cqlabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
