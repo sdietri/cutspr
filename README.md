@@ -47,5 +47,5 @@ We aimed to make this application as compatible as possible to the commonly used
 
 Mail to:<br>
 Robert Hertel: rhertel(at)gwdg.de<br>
-Sascha Ditrich: sdietri(at)gwdg.de
+Sascha Dietrich: sdietri(at)gwdg.de
 
