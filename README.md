@@ -39,7 +39,13 @@ http://appmibio.uni-goettingen.de/index.php?sec=sw
 
 These versions only require the NCBI blast suite to be installed on your system and should require no additional setup.
 
-CutSPR has been tested successfully on Ubuntu 16.04 LTS, Linux Mint 18.3, Windows 7 and 10 and MacOSX El Capitan, Sierra and High Sierra.
+CutSPR has been tested successfully on 
+<ul>
+  <li>Ubuntu 16.04 LTS, Linux Mint 18.3</li> 
+  <li>Windows 7 and 10 </li>
+  <li>MacOSX El Capitan, Sierra and High Sierra </li>
+</ul>
+
 Biolinux8 14.04 was found to be incompatible.
 
 <b>Feedback and Support</b><br>
