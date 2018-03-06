@@ -30,9 +30,22 @@ If you’re using another version of Ubuntu (e.g. the latest LTS release), we re
   <li>sudo apt-get update</li>
 </ul>
 
-Start CutSPR with the flowing command line:<br>
+<b>How to start CutSPR</b><br>
+If you use the python version from GitHub, ensure that the dependencies are resolved and run cutspr.py:<br>
 $ python3 cutspr.py
-  
 
+Alternatively, prepackaged portable versions are available for the 64bit versions of Windows, MacOSX and Linux at
+http://appmibio.uni-goettingen.de/index.php?sec=sw
 
+These versions only require the NCBI blast suite to be installed on your system and should require no additional setup.
+
+CutSPR has been tested successfully on Ubuntu 16.04 LTS, Linux Mint 18.3, Windows 7 and 10 and MacOSX El Capitan, Sierra and High Sierra.
+Biolinux8 14.04 was found to be incompatible.
+
+<b>Feedback and Support</b><br>
+We aimed to make this application as compatible as possible to the commonly used operating systems. However it is impossible to cover everything and foresee all potential obstacles. So if you have faced difficulties using CutSPR, do not hesitate to contact us so we can find a solution.
+
+Mail to:<br>
+Robert Hertel: rhertel(at)gwdg.de<br>
+Sascha Ditrich: sdietri(at)gwdg.de
 
