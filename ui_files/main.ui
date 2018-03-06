@@ -146,23 +146,7 @@ p, li { white-space: pre-wrap; }
              <enum>QFrame::Raised</enum>
             </property>
             <property name="text">
-             <string>2. Deletion or Insertion Cassettes</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="CQlabel" name="vecConstHeader">
-            <property name="frameShape">
-             <enum>QFrame::WinPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <property name="text">
-             <string>3. Vector Construction</string>
+             <string>2. Deletion or Insertion Cassette</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -194,9 +178,25 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Deletion- or Insertion-Cassettes&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Deletion- or Insertion-Cassette&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;A recombination cassette is designed from the genomic surrounding of the deletion target. In case an insertion is required a desired sequence can be provided. CutSPR generates all required primers and extends them with homolog regions to allow fusing of the fragments via PCR. The exterior primers of the recombination cassette are extended with restriction sides to enable cloning in to the SfiI processed vector. The size of each flank and the extensions of the outer primers can be freely modified.&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="CQlabel" name="vecConstHeader">
+            <property name="frameShape">
+             <enum>QFrame::WinPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <property name="text">
+             <string>3. Vector Construction</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -256,7 +256,7 @@ p, li { white-space: pre-wrap; }
           <item>
            <widget class="QLabel" name="label_31">
             <property name="text">
-             <string>&lt;a href=&quot;http://appmibio.uni-goettingen.de/index.php?sec=sw&quot;&gt;G2L CutSPR website&lt;/a&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/sdietri/cutspr&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;CutSPR GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="openExternalLinks">
              <bool>true</bool>
@@ -382,7 +382,7 @@ p, li { white-space: pre-wrap; }
             <item>
              <widget class="QLabel" name="label_30">
               <property name="text">
-               <string>Target in BP:</string>
+               <string>Spacer in bp:</string>
               </property>
              </widget>
             </item>
@@ -429,6 +429,9 @@ p, li { white-space: pre-wrap; }
           </property>
           <item>
            <widget class="QPushButton" name="cutRun">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="maximumSize">
              <size>
               <width>300</width>
@@ -451,15 +454,66 @@ p, li { white-space: pre-wrap; }
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
              <widget class="QLabel" name="label_43">
+              <property name="maximumSize">
+               <size>
+                <width>10000000</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
-               <string>Sequence</string>
+               <string>Sequence and GC content</string>
               </property>
              </widget>
             </item>
             <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <widget class="QLabel" name="label_42">
+              <property name="maximumSize">
+               <size>
+                <width>240</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
-               <string>Percent similarity of secondary hit in genome (lower = better)</string>
+               <string>Percent similarity of next best off-target</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_45">
+              <property name="maximumSize">
+               <size>
+                <width>180</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Potential Seeds in Reference</string>
               </property>
              </widget>
             </item>
@@ -531,7 +585,7 @@ p, li { white-space: pre-wrap; }
         <string notr="true"/>
        </property>
        <attribute name="title">
-        <string>2. Deletion or Insertion Cassettes</string>
+        <string>2. Deletion or Insertion Cassette</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
@@ -744,7 +798,7 @@ p, li { white-space: pre-wrap; }
            <item>
             <widget class="QLabel" name="label_44">
              <property name="text">
-              <string>Melting temp. in °C (overhang for recombination primers | primer)</string>
+              <string>Melting temp. in °C (overhang | primer)</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1585,7 +1639,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;We will not present exact recipes for the mentioned enzymatic reactions, PCRs or purification steps, as many paths lead to success. Thus, we recommend to study and accurately follow the manufacturer’s instructions of the enzymes and kits present in your lab.&lt;/p&gt;
 &lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the sgRNA&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Adjust primer 1 and 2 to a final concentration of 5 µM. Mix 10 µl of each primer and incubate for 30-60 min at room temperature. Digest ~1 µg of empty vector with BsaI endonuclease. It will result in two fragments. One with a size of ~7.4 kb and another with 371 bp. Purify the bigger fragment via gel-extraction. Ligate about 40 ng of the prepared vector with 1 µl of the primer hybridization using T4-DNA-Ligase. Use the ligation reaction to directly transform chemical competent &lt;span style=&quot; font-style:italic;&quot;&gt;E. coli&lt;/span&gt; cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease EcoRI or BsaI. In case of an empty vector EcoRI will result in three fragments (~3.2 kb, ~4 kb and 200 bp), whereas BsaI will result in two as described above. In case of the desired construct EcoRI digestion results in two fragments (~3 kb and 4 kb) and BsaI has no effect. Positive candidates can be further verified via Sanger sequencing using primer RH003 (5’ACCGAGCGTTCTGAACAAATCC).&lt;/p&gt;
-&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the Deletion-Cassettes&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the Deletion-Cassette&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Amplify the flanks of the target locus by PCR with the respective primers (Primer3 and Primer4 for Flank A&lt;span style=&quot; color:#0070c0;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;and Primer 5 and Primer 6 for Flank B&lt;/span&gt;) from your target genome, setting the annealing temperature to 54°C. Use a high fidelity DNA polymerase with proof-reading activity. &lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Verify your PCR products via agarose gel electrophoresis and purify them. Dilute the DNA to a concentration of 0.1 ng/µl. Mix 10 µl of each diluted amplification product and use 1 µl of this mixture as template for PCR with Primer 3 and Primer &lt;span style=&quot; color:#000000;&quot;&gt;6&lt;/span&gt; to create the &lt;span style=&quot; color:#000000;&quot;&gt;deletion&lt;/span&gt;&lt;span style=&quot; color:#0070c0;&quot;&gt;-&lt;/span&gt;cassette. Set the annealing temperature to 54°C. Verify the PCR product via gel-electrophoresis. It should reveal a combined product size of both flanks. Purify the PCR product and digest it with SfiI endonuclease. In parallel digest the sgRNA containing vector with SfiI. Purify the linearized 7.4 kb vector via gel- extraction. Use 40 ng of the processed vector and ligate it with the deletion cassette using the T4-DNA-Ligase (~&lt;span style=&quot; color:#000000;&quot;&gt;40&lt;/span&gt; ng in case of a ~&lt;span style=&quot; color:#000000;&quot;&gt;1&lt;/span&gt;.5 kb &lt;span style=&quot; color:#000000;&quot;&gt;deletion&lt;/span&gt;-cassette). Use the ligation reaction to directly transform chemically competent &lt;span style=&quot; font-style:italic;&quot;&gt;E. coli&lt;/span&gt; cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease SalI-XbaI or SfiI. A positive construct should release the recombination-cassette, visible as a separate band in an agarose gel. Verify sequence of your deletion cassette via Sanger sequencing using primer RH001 (&lt;span style=&quot; font-size:10pt;&quot;&gt;AGCTTAGGCCCAGTCGAAAG&lt;/span&gt;), RH002 (&lt;span style=&quot; font-size:10pt;&quot;&gt;CAGCTAGGAGGTGACTGAAG&lt;/span&gt;) and if necessary further primer used for construction.&lt;/p&gt;
 &lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Transformation of &lt;/span&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; font-style:italic; color:#000000;&quot;&gt;B. subtilis&lt;/span&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt; TS01&lt;/span&gt;&lt;/p&gt;
@@ -1627,7 +1681,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;We will not present exact recipes for the mentioned enzymatic reactions, PCRs or purification steps, as many paths lead to success. Thus, we recommend to study and accurately follow the manufacturer’s instructions of the enzymes and kits present in your lab.&lt;/p&gt;
 &lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the sgRNA&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Adjust primer 1 and 2 to a final concentration of 5 µM. Mix 10 µl of each primer and incubate for 30-60 min at room temperature. Digest ~1 µg of empty vector with BsaI endonuclease. It will result in two fragments. One with a size of ~7.4 kb and another with 371 bp. Purify the bigger fragment via gel-extraction. Ligate about 40 ng of the prepared vector with 1 µl of the primer hybridization using T4-DNA-Ligase. Use the ligation reaction to directly transform chemical competent &lt;span style=&quot; font-style:italic;&quot;&gt;E. coli&lt;/span&gt; cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease EcoRI or BsaI. In case of an empty vector EcoRI will result in three fragments (~3.2 kb, ~4 kb and 200 bp), whereas BsaI will result in two as described above. In case of the desired construct EcoRI digestion results in two fragments (~3 kb and 4 kb) and BsaI has no effect. Positive candidates can be further verified via Sanger sequencing using primer RH003 (5’ACCGAGCGTTCTGAACAAATCC).&lt;/p&gt;
-&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the Insertion-Cassettes&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Cloning the Insertion-Cassette&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Amplify the flanks of the target locus by PCR with the respective primers (Primer3 and Primer4 for Flank A, Primer5 and Primer6 &lt;span style=&quot; color:#000000;&quot;&gt;for insertion-fragment and Primer 7 and Primer 8 for Flank B&lt;/span&gt;) from your target genome, setting the annealing temperature to 54°C. Use a high fidelity DNA polymerase with proof-reading activity. &lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;Verify your PCR products via agarose gel electrophoresis and purify them. Dilute the DNA to a concentration of 0.1 ng/µl. Mix 10 µl of each diluted amplification product and use 1 µl of this mixture as template for PCR with Primer 3 and Primer &lt;span style=&quot; color:#000000;&quot;&gt;8&lt;/span&gt; to create the &lt;span style=&quot; color:#000000;&quot;&gt;insertion&lt;/span&gt;&lt;span style=&quot; color:#0070c0;&quot;&gt;-&lt;/span&gt;cassette. Set the annealing temperature to 54°C. Verify the PCR product via gel-electrophoresis. It should reveal a combined product size of both flanks &lt;span style=&quot; color:#000000;&quot;&gt;and the insertion-fragment&lt;/span&gt;. Purify the PCR product and digest it with SfiI endonuclease. In parallel digest the sgRNA containing vector with SfiI. Purify the linearized 7.4 kb vector via gel- extraction. Use 40 ng of the processed vector and ligate it with the &lt;span style=&quot; color:#000000;&quot;&gt;insertion&lt;/span&gt;-cassette using the T4-DNA-Ligase (~&lt;span style=&quot; color:#000000;&quot;&gt;60&lt;/span&gt; ng in case of a ~&lt;span style=&quot; color:#000000;&quot;&gt;2&lt;/span&gt;.5 kb &lt;span style=&quot; color:#000000;&quot;&gt;insertion&lt;/span&gt;-cassette). Use the ligation reaction to directly transform chemically competent &lt;span style=&quot; font-style:italic;&quot;&gt;E. coli&lt;/span&gt; cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease SalI-XbaI or SfiI. A positive construct should release the recombination-cassette, visible as a separate band in an agarose gel. Verify sequence of your deletion cassette via Sanger sequencing using primer RH001 (&lt;span style=&quot; font-size:10pt;&quot;&gt;AGCTTAGGCCCAGTCGAAAG&lt;/span&gt;), RH002 (&lt;span style=&quot; font-size:10pt;&quot;&gt;CAGCTAGGAGGTGACTGAAG&lt;/span&gt;) and if necessary further primer used for construction.&lt;/p&gt;
 &lt;p style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt;Transformation of &lt;/span&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; font-style:italic; color:#000000;&quot;&gt;B. subtilis&lt;/span&gt;&lt;span style=&quot; font-family:'Cambria,serif'; font-size:13pt; font-weight:600; color:#000000;&quot;&gt; TS01&lt;/span&gt;&lt;/p&gt;

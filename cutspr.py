@@ -28,11 +28,13 @@ from ui_files.authors import Ui_Authors
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStyleFactory, QFileDialog, QLineEdit, \
                             QLabel, QListWidgetItem, QHBoxLayout,QFrame, QDialog, QSpacerItem, QSizePolicy
 from PyQt5.QtGui import QFont, QColor
+from PyQt5.QtCore import Qt
 
 from Bio.Seq import Seq
 from Bio import SeqIO
 from Bio.Alphabet import IUPAC
 from Bio.SeqUtils import MeltingTemp as mt
+from Bio.SeqUtils import GC
 
 from Bio.Blast import NCBIXML
 
@@ -70,6 +72,7 @@ class PAMhit:
         self.strand = strand
         
         self.genRefCount = 0
+        self.seedCount = 0
         self.secondHitPerc = 0.0
         
 class BlastExeDialog(QDialog, Ui_BlastExecutableSelection):
@@ -135,6 +138,7 @@ class MainDialog(QMainWindow, Ui_CutSPR):
         self.targetSelected = False
         self.genomeRefFasta = None
         
+        self.deletionTargetSeq.textChanged.connect(self.checkRunInput)
         
         self.insertSeq.textChanged.connect(self.insertSeqChanged)
         self.insert = ""
@@ -199,6 +203,32 @@ class MainDialog(QMainWindow, Ui_CutSPR):
             self.blastnExe = exes[0]
             self.makeBlastDBExe = exes[1]
             
+            self.cutRun.setEnabled(False)
+            self.cutRun.setText("This step requires BLAST to be installed!")
+            
+    def checkRunInput(self):
+        if len(self.deletionTargetSeq.toPlainText()) > 0 and self.refGenFiles.count() > 0:
+            self.cutRun.setEnabled(True)
+        else:
+            self.cutRun.setEnabled(False)
+        
+    def getReferenceSeq(self):
+        refSeqs = {}
+        f = open(self.genomeRefFasta, "r")
+        
+        curSeq = ""
+        for line in f.readlines():
+            if line.startswith(">"):
+                curSeq = line.strip().replace(">", "")
+                if not curSeq in refSeqs:
+                    refSeqs[curSeq] = ""
+                #curSeq = line.strip().replace(">", "")
+            else:
+                refSeqs[curSeq] += line.strip()
+        
+        return refSeqs
+                
+    
     def toggleTextBlock(self, block):
         if block.isVisible():
             block.hide()
@@ -436,6 +466,8 @@ class MainDialog(QMainWindow, Ui_CutSPR):
             o.close()
             self.genomeRefFasta = refFasta
             
+            self.checkRunInput()
+            
     def updateOverhangs(self, overhangA, overhangB, vecType):
         #print("change Overhangs")
         if vecType == "sgRNA":
@@ -529,6 +561,8 @@ class MainDialog(QMainWindow, Ui_CutSPR):
             delSeq = delSeq + line.replace("\n", "")
         
         delSeq = delSeq.upper()
+        
+        #these are the pam candidates
         pamhits = {}
         
         matches = re.finditer(regex, delSeq)
@@ -565,7 +599,7 @@ class MainDialog(QMainWindow, Ui_CutSPR):
         delFastaHandle.flush()
         delFastaHandle.close()
         
-        #print(self.genomeRefFasta)
+        print(self.genomeRefFasta)
         subprocess.call([self.blastnExe,"-query",delFasta,"-db", self.genomeRefFasta, "-task","blastn-short", "-outfmt","5", "-out", delFasta+".xml", "-num_threads","2"])
         
         self.foundTarget = False
@@ -610,10 +644,13 @@ class MainDialog(QMainWindow, Ui_CutSPR):
         elif self.targetSelected:
             self.tabWidget.setTabEnabled(3, True)
             self.tabWidget.tabBar().setTabTextColor(2, QColor(0,0,0))
-        #blast our candidates
+        #blast our candidates against the whole genome
         subprocess.call([self.blastnExe,"-query",hitFasta,"-db", self.genomeRefFasta, "-task" ,"blastn-short", "-outfmt","5", "-out", hitFasta+".xml", "-num_threads","2"])
         
         blast_records = NCBIXML.parse(open(hitFasta+".xml"))
+        
+        refSeqs = self.getReferenceSeq()
+        
         for blast_record in blast_records:
             queryletters = blast_record.query_letters
 
@@ -625,72 +662,190 @@ class MainDialog(QMainWindow, Ui_CutSPR):
                         pamhits[blast_record.query].refStart = hsp.sbjct_start
                         pamhits[blast_record.query].refStop = hsp.sbjct_end
                         pamhits[blast_record.query].ref = ref
-                        pamhits[blast_record.query].genRefCount+=1
-                    elif blast_record.query in pamhits and pamhits[blast_record.query].secondHitPerc == 0.0:
-                        pamhits[blast_record.query].secondHitPerc = hitPerc
+                        pamhits[blast_record.query].genRefCount+=1 #another 100% hit would put this past 1 which is later filtered against
+                    elif blast_record.query in pamhits: 
+                        #we need to check if second position has a PAM next to it
+                        hasPam = False
+                        if hsp.sbjct_start > hsp.sbjct_end:
+                        
+                            stop = hsp.sbjct_start
+                            start = hsp.sbjct_end
+                            #revcomp refSeq
+                            #refSeq = str(Seq(refSeqs[ref], IUPAC.unambiguous_dna).reverse_complement())
+                            
+                            #print(str(start) + " " + str(stop))
+                            #print(str(hsp.query_start) + " " + str(hsp.query_end))
+                            #print(ref)
+                            #hitSeqFromRef = str(Seq(refSeqs[ref][start-1:stop], IUPAC.unambiguous_dna).reverse_complement())
+                            #print(pamhits[blast_record.query].seq + " " + hitSeqFromRef)
+                            #print(pamhits[blast_record.query].seq[hsp.query_start-1:hsp.query_end])
+                            
+
+                            diffHit = len(pamhits[blast_record.query].seq) - hsp.query_end -3
+                            
+                            refPotPAM =  str(Seq(refSeqs[ref][start-diffHit-4:start-diffHit-1], IUPAC.unambiguous_dna).reverse_complement())
+                            pamReg = self.getPAMregex(PAMonly = True)
+                            m = re.match(pamReg, refPotPAM)
+                            #print(refPotPAM)
+                            #apply regex to check if refPotPam fits
+                            if m:
+                                hasPam = True
+                                #print(refPotPAM)
+                                #print(diffHit)
+                                lenSeed = len(pamhits[blast_record.query].seq[hsp.query_start-1:hsp.query_end])
+                                if diffHit < 3:
+                                    # seeds lie at +2 from the PAM position. diffhit gives the relative position of the right hand end of the seed
+                                    # with respect to the PAM pattern. Goes from -3 to +2. bigger than +2 means there's no valid seed
+                                    lenSeed = lenSeed-diffHit-2
+                                    #if the seed from the +2 is at least 8 bases long, it's a valid seed
+                                    if lenSeed >=8:
+                                        pamhits[blast_record.query].seedCount+=1
+                                    
+                                
+                                    
+                                #refSeqSeed = str(Seq(refSeqs[ref][start-1: stop + diffHit + 3], IUPAC.unambiguous_dna).reverse_complement())
+                                #refSeqSeed = refSeqSeed[-10:-5]
+                                #print("seed " + refSeqSeed)
+                                #seedCount = refSeqs[ref].count(refSeqSeed)
+                                #seedCount += str(Seq(refSeqs[ref], IUPAC.unambiguous_dna).reverse_complement()).count(refSeqSeed)
+                                #print(seedCount)
+                            
+                            
+                        else:
+                            #print(str(hsp.sbjct_start) + " " + str(hsp.sbjct_end))
+                            #print(str(hsp.query_start) + " " + str(hsp.query_end))
+                            #print(ref)
+                            #hitSeqFromRef = refSeqs[ref][hsp.sbjct_start-1:hsp.sbjct_end]
+                            #print(pamhits[blast_record.query].seq + " " + hitSeqFromRef)
+                            #print(pamhits[blast_record.query].seq[hsp.query_start-1:hsp.query_end])
+                                
+                            #print("get missing positions to potential NGG site")
+                            
+                            diffHit = len(pamhits[blast_record.query].seq) - hsp.query_end -3
+                            
+                            #get seq following hit in ref to check for potential PAM site
+                            refPotPAM = refSeqs[ref][hsp.sbjct_end + diffHit: hsp.sbjct_end + diffHit + 3]
+                            #print(refPotPAM)
+                            pamReg = self.getPAMregex(PAMonly = True)
+                            m = re.match(pamReg, refPotPAM)
+                            if m:
+                                hasPam = True
+                                #print(refPotPAM)
+                                #print(diffHit)
+                                lenSeed = len(pamhits[blast_record.query].seq[hsp.query_start-1:hsp.query_end])
+                                #seed needs to have at least 8 bases minimum length to constitute a problem
+                                
+                                if diffHit < 3:
+                                    # seeds lie at +2 from the PAM position. diffhit gives the relative position of the right hand end of the seed
+                                    # with respect to the PAM pattern. Goes from -3 to +2. bigger than +2 means there's no valid seed
+                                    lenSeed = lenSeed-diffHit-2
+                                    #if the seed from the +2 is at least 8 bases long, it's a valid seed
+                                    if lenSeed >=8:
+                                        pamhits[blast_record.query].seedCount+=1
+                                #apply regex to check if refPotPam fits
+                                #refSeqSeed = refSeqs[ref][hsp.sbjct_start-1: hsp.sbjct_end + diffHit + 3]
+                                #refSeqSeed = refSeqSeed[-11:-5]
+                                #print("seed " + refSeqSeed)
+                                #print(refSeqs[ref].count(refSeqSeed))
+                            
+                        if hasPam:
+                            if pamhits[blast_record.query].secondHitPerc == 0.0:
+                                pamhits[blast_record.query].secondHitPerc = hitPerc
+                        
         
         #Sort hits by their genRefCount
-        orderedHits = []
+        groupedHits = {}
+        percs = []
+        
         for curhit in pamhits:
-            if len(orderedHits) == 0:
-                orderedHits.append(curhit)
-                continue
-            
-            targetPos = 0
-            for curOrdHit in orderedHits:
-                if pamhits[curhit].secondHitPerc > pamhits[curOrdHit].secondHitPerc:
-                    targetPos+=1
+            if not pamhits[curhit].secondHitPerc in groupedHits:
+                groupedHits[pamhits[curhit].secondHitPerc] = [curhit]
+                percs.append(pamhits[curhit].secondHitPerc)
+            else:
+                groupedHits[pamhits[curhit].secondHitPerc].append(curhit)
+                
+        for curperc in sorted(percs):
+            orderedHits = []
+            for curhit in groupedHits[curperc]:
+                if len(orderedHits) == 0:
+                    orderedHits.append(curhit)
+                    continue
+                
+                targetPos = 0
+                for curOrdHit in orderedHits:
+                    if pamhits[curhit].seedCount > pamhits[curOrdHit].seedCount:
+                        targetPos+=1
+    
+                orderedHits.insert(targetPos, curhit)
+            groupedHits[curperc] = orderedHits
+        
 
-            orderedHits.insert(targetPos, curhit)
             
         #Display results
-        for curhit in orderedHits:
-            if not pamhits[curhit].genRefCount == 1:
-                continue #only unique sequences wanted
-            nTr = QListWidgetItem(self.resultsList)
-            hbox = QHBoxLayout()
-            
-            
-            targetLength = 20
-            if len(self.targetLength.text()) > 0:
-                targetLength = int(self.targetLength.text())
-            
-            
-            hitseq = QLineEdit()
-            hitseq.setText(pamhits[curhit].seq[:targetLength])
-            hitseq.setReadOnly(True)
-            font = QFont("Monospace",9,QFont.Bold,False)   
-            hitseq.setFont(font)
-            hitseq.setFixedWidth(len(pamhits[curhit].seq)*8)
-            hbox.addWidget(hitseq)
-            
-            secondHitPerc = "%.2f" % pamhits[curhit].secondHitPerc
-            
-            secondHitPercLabel = QLabel(secondHitPerc)
-            secondHitPercLabel.setStyleSheet("QLabel { background-color: rgba(0,250,0,250); }")
-            if pamhits[curhit].secondHitPerc > 50.0:
-                secondHitPercLabel.setStyleSheet("QLabel { background-color: rgba(250,250,0,250); }")
-            if pamhits[curhit].secondHitPerc > 70.0:
-                secondHitPercLabel.setStyleSheet("QLabel { background-color: rgba(250,120,0,250); }")
-            if pamhits[curhit].secondHitPerc > 90.0:
-                secondHitPercLabel.setStyleSheet("QLabel { background-color: rgba(250,0,0,250); }")
-            hbox.addWidget(secondHitPercLabel)
-            
-            nTr.__setattr__("hit", pamhits[curhit])
-            nTr.__setattr__("seq", pamhits[curhit].seq[:targetLength])
-            
-            frame = QFrame()
-            frame.setLayout(hbox)
-            nTr.setSizeHint(frame.minimumSizeHint())
-            
-            self.resultsList.addItem(nTr)
-            self.resultsList.setItemWidget(nTr,frame)
-            
+        for curperc in sorted(percs):
+            for curhit in groupedHits[curperc]:
+                if not pamhits[curhit].genRefCount == 1:
+                    continue #only unique sequences wanted
+                nTr = QListWidgetItem(self.resultsList)
+                hbox = QHBoxLayout()
+                
+                
+                targetLength = 20
+                if len(self.targetLength.text()) > 0:
+                    targetLength = int(self.targetLength.text())
+                
+                
+                hitseq = QLineEdit()
+                hitseq.setText(pamhits[curhit].seq[:targetLength])
+                hitseq.setReadOnly(True)
+                font = QFont("Monospace",9,QFont.Bold,False)   
+                hitseq.setFont(font)
+                hitseq.setFixedWidth(len(pamhits[curhit].seq)*8)
+                hbox.addWidget(hitseq)
+                
+                GCcontLab = QLabel("%.2f" % GC(pamhits[curhit].seq[:targetLength]))
+                hbox.addWidget(GCcontLab)
+                
+                spacer = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
+                hbox.addItem(spacer)
+                
+                secondHitPerc = "%.2f" % pamhits[curhit].secondHitPerc
+                
+                secondHitPercLabel = QLabel(secondHitPerc)
+                secondHitPercLabel.setStyleSheet("QLabel { background-color: rgba(0,250,0,250); }")
+                if pamhits[curhit].secondHitPerc > 50.0:
+                    secondHitPercLabel.setStyleSheet("QLabel { background-color: rgba(250,250,0,250); }")
+                if pamhits[curhit].secondHitPerc > 70.0:
+                    secondHitPercLabel.setStyleSheet("QLabel { background-color: rgba(250,120,0,250); }")
+                if pamhits[curhit].secondHitPerc > 90.0:
+                    secondHitPercLabel.setStyleSheet("QLabel { background-color: rgba(250,0,0,250); }")
+                secondHitPercLabel.setMinimumWidth(40)
+                secondHitPercLabel.setAlignment(Qt.AlignCenter)
+                hbox.addWidget(secondHitPercLabel)
+                
+                spacer = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
+                hbox.addItem(spacer)
+                
+                seedCountLabel = QLabel(str(pamhits[curhit].seedCount))
+                seedCountLabel.setMinimumWidth(40)
+                seedCountLabel.setAlignment(Qt.AlignCenter)
+                hbox.addWidget(seedCountLabel)
+                
+                nTr.__setattr__("hit", pamhits[curhit])
+                nTr.__setattr__("seq", pamhits[curhit].seq[:targetLength])
+                
+                frame = QFrame()
+                frame.setLayout(hbox)
+                nTr.setSizeHint(frame.minimumSizeHint())
+                
+                self.resultsList.addItem(nTr)
+                self.resultsList.setItemWidget(nTr,frame)
+                
         
         if self.resultsList.count() == 0:
             self.resultsList.addItem("No unique hits in target")
         
-    def getPAMregex(self):
+    def getPAMregex(self, PAMonly = False):
         pat = self.PAMpattern.text()
         regexPat = ""
         for letter in pat.upper():
@@ -699,9 +854,12 @@ class MainDialog(QMainWindow, Ui_CutSPR):
         targetLength = "20"
         if len(self.targetLength.text()) > 0:
             targetLength = self.targetLength.text()
-            
-        return "([ACTG]{" + targetLength + "})" + regexPat
         
+        if PAMonly:
+            return regexPat
+        else:
+            return "([ACTG]{" + targetLength + "})" + regexPat
+
 app = QApplication(sys.argv)
 screen_resolution = app.desktop().screenGeometry()
 width, height = screen_resolution.width(), screen_resolution.height()

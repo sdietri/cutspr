@@ -72,12 +72,6 @@ class Ui_CutSPR(object):
         self.indelCassHeader.setAlignment(QtCore.Qt.AlignCenter)
         self.indelCassHeader.setObjectName("indelCassHeader")
         self.verticalLayout_7.addWidget(self.indelCassHeader)
-        self.vecConstHeader = CQlabel(self.IntroductionPage)
-        self.vecConstHeader.setFrameShape(QtWidgets.QFrame.WinPanel)
-        self.vecConstHeader.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.vecConstHeader.setAlignment(QtCore.Qt.AlignCenter)
-        self.vecConstHeader.setObjectName("vecConstHeader")
-        self.verticalLayout_7.addWidget(self.vecConstHeader)
         self.indelCassDesc = QtWidgets.QTextBrowser(self.IntroductionPage)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -89,6 +83,12 @@ class Ui_CutSPR(object):
         self.indelCassDesc.setFrameShadow(QtWidgets.QFrame.Plain)
         self.indelCassDesc.setObjectName("indelCassDesc")
         self.verticalLayout_7.addWidget(self.indelCassDesc)
+        self.vecConstHeader = CQlabel(self.IntroductionPage)
+        self.vecConstHeader.setFrameShape(QtWidgets.QFrame.WinPanel)
+        self.vecConstHeader.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.vecConstHeader.setAlignment(QtCore.Qt.AlignCenter)
+        self.vecConstHeader.setObjectName("vecConstHeader")
+        self.verticalLayout_7.addWidget(self.vecConstHeader)
         self.vecConstDesc = QtWidgets.QTextBrowser(self.IntroductionPage)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -181,6 +181,7 @@ class Ui_CutSPR(object):
         self.verticalLayout_4.setSizeConstraint(QtWidgets.QLayout.SetMaximumSize)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.cutRun = QtWidgets.QPushButton(self.gsRNAsearch)
+        self.cutRun.setEnabled(False)
         self.cutRun.setMaximumSize(QtCore.QSize(300, 16777215))
         self.cutRun.setObjectName("cutRun")
         self.verticalLayout_4.addWidget(self.cutRun)
@@ -190,11 +191,21 @@ class Ui_CutSPR(object):
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.label_43 = QtWidgets.QLabel(self.gsRNAsearch)
+        self.label_43.setMaximumSize(QtCore.QSize(10000000, 16777215))
         self.label_43.setObjectName("label_43")
         self.horizontalLayout_6.addWidget(self.label_43)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem2)
         self.label_42 = QtWidgets.QLabel(self.gsRNAsearch)
+        self.label_42.setMaximumSize(QtCore.QSize(240, 16777215))
         self.label_42.setObjectName("label_42")
         self.horizontalLayout_6.addWidget(self.label_42)
+        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem3)
+        self.label_45 = QtWidgets.QLabel(self.gsRNAsearch)
+        self.label_45.setMaximumSize(QtCore.QSize(180, 16777215))
+        self.label_45.setObjectName("label_45")
+        self.horizontalLayout_6.addWidget(self.label_45)
         self.verticalLayout_4.addLayout(self.horizontalLayout_6)
         self.resultsList = QtWidgets.QListWidget(self.gsRNAsearch)
         self.resultsList.setMovement(QtWidgets.QListView.Static)
@@ -214,8 +225,8 @@ class Ui_CutSPR(object):
         self.label_27 = QtWidgets.QLabel(self.gsRNAsearch)
         self.label_27.setObjectName("label_27")
         self.horizontalLayout_3.addWidget(self.label_27)
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_3.addItem(spacerItem2)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem4)
         self.verticalLayout_5.addLayout(self.horizontalLayout_3)
         self.tabWidget.addTab(self.gsRNAsearch, "")
         self.cassetteDesign = QtWidgets.QWidget()
@@ -296,8 +307,8 @@ class Ui_CutSPR(object):
         self.cassetteMsgBox.setReadOnly(True)
         self.cassetteMsgBox.setObjectName("cassetteMsgBox")
         self.verticalLayout_6.addWidget(self.cassetteMsgBox)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_6.addItem(spacerItem3)
+        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_6.addItem(spacerItem5)
         self.tabWidget.addTab(self.cassetteDesign, "")
         self.workingProtocol = QtWidgets.QWidget()
         self.workingProtocol.setObjectName("workingProtocol")
@@ -560,8 +571,8 @@ class Ui_CutSPR(object):
         self.label_34.setObjectName("label_34")
         self.insertStyleSwapper.addWidget(self.page_2)
         self.verticalLayout_8.addWidget(self.insertStyleSwapper)
-        spacerItem4 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        self.verticalLayout_8.addItem(spacerItem4)
+        spacerItem6 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        self.verticalLayout_8.addItem(spacerItem6)
         self.protocolSwapper = QtWidgets.QStackedWidget(self.workingProtocol)
         self.protocolSwapper.setGeometry(QtCore.QRect(0, 430, 801, 431))
         self.protocolSwapper.setObjectName("protocolSwapper")
@@ -637,15 +648,15 @@ class Ui_CutSPR(object):
 "</style></head><body style=\" font-family:\'Sans Serif\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">sgRNA Spacer Sequence</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">Provided with the genome sequences of the host, the virus (if any), and the gene locus to be edited, CutSPR finds unique spacer sequences. Candidates are verified against the genetic background to ensure specificity to the desired target. After selection of the desired spacer sequence CutSPR generates primers for the creation of a specific sgRNA. The PAM sequence, spacer length and primer extension can be freely modified, which may be of interest for systems different from the designated. </p></body></html>"))
-        self.indelCassHeader.setText(_translate("CutSPR", "2. Deletion or Insertion Cassettes"))
-        self.vecConstHeader.setText(_translate("CutSPR", "3. Vector Construction"))
+        self.indelCassHeader.setText(_translate("CutSPR", "2. Deletion or Insertion Cassette"))
         self.indelCassDesc.setHtml(_translate("CutSPR", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Sans Serif\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Deletion- or Insertion-Cassettes</span></p>\n"
+"<p align=\"center\" style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Deletion- or Insertion-Cassette</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">A recombination cassette is designed from the genomic surrounding of the deletion target. In case an insertion is required a desired sequence can be provided. CutSPR generates all required primers and extends them with homolog regions to allow fusing of the fragments via PCR. The exterior primers of the recombination cassette are extended with restriction sides to enable cloning in to the SfiI processed vector. The size of each flank and the extensions of the outer primers can be freely modified.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.vecConstHeader.setText(_translate("CutSPR", "3. Vector Construction"))
         self.vecConstDesc.setHtml(_translate("CutSPR", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -653,20 +664,21 @@ class Ui_CutSPR(object):
 "<p align=\"center\" style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Vector Construction</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">After all parameters are defined CutSPR will provide working instructions of how to use the generated primers and create the desired CRISPR-Cas9 base mutagenesis vector. It will also give information on how to introduce this vector to the working strain <span style=\" font-style:italic;\">B. subtilis</span> TS01 and create the desired mutant.</p></body></html>"))
         self.label_29.setText(_translate("CutSPR", "For more information about this application, please visit:"))
-        self.label_31.setText(_translate("CutSPR", "<a href=\"http://appmibio.uni-goettingen.de/index.php?sec=sw\">G2L CutSPR website</a>"))
+        self.label_31.setText(_translate("CutSPR", "<html><head/><body><p><a href=\"https://github.com/sdietri/cutspr\"><span style=\" text-decoration: underline; color:#0000ff;\">CutSPR GitHub</span></a></p></body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.IntroductionPage), _translate("CutSPR", "Welcome"))
         self.label_3.setText(_translate("CutSPR", "Reference genome (host and virus) as GBK, fasta or EMBL:"))
         self.fileSelectionButton.setText(_translate("CutSPR", "Select Files..."))
         self.label_4.setText(_translate("CutSPR", "Deletion target sequence:"))
         self.label.setText(_translate("CutSPR", "PAM pattern"))
         self.PAMpattern.setText(_translate("CutSPR", "NGG"))
-        self.label_30.setText(_translate("CutSPR", "Target in BP:"))
+        self.label_30.setText(_translate("CutSPR", "Spacer in bp:"))
         self.targetLength.setInputMask(_translate("CutSPR", "99"))
         self.targetLength.setText(_translate("CutSPR", "20"))
         self.cutRun.setText(_translate("CutSPR", "Search Spacer Sequence"))
         self.label_2.setText(_translate("CutSPR", "Select desired spacer sequence from results:"))
-        self.label_43.setText(_translate("CutSPR", "Sequence"))
-        self.label_42.setText(_translate("CutSPR", "Percent similarity of secondary hit in genome (lower = better)"))
+        self.label_43.setText(_translate("CutSPR", "Sequence and GC content"))
+        self.label_42.setText(_translate("CutSPR", "Percent similarity of next best off-target"))
+        self.label_45.setText(_translate("CutSPR", "Potential Seeds in Reference"))
         self.cloningSitesgRNA.setText(_translate("CutSPR", "Choose cloning sites"))
         self.label_27.setText(_translate("CutSPR", "Default vector pJOE8999 (change if necessary)"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.gsRNAsearch), _translate("CutSPR", "1. sgRNA Spacer Sequence"))
@@ -681,9 +693,9 @@ class Ui_CutSPR(object):
         self.flankASize.setText(_translate("CutSPR", "700"))
         self.label_41.setText(_translate("CutSPR", "FlankB target size"))
         self.circularTargetCheck.setText(_translate("CutSPR", "Is target replicon circular?"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.cassetteDesign), _translate("CutSPR", "2. Deletion or Insertion Cassettes"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.cassetteDesign), _translate("CutSPR", "2. Deletion or Insertion Cassette"))
         self.label_46.setText(_translate("CutSPR", "Sequence"))
-        self.label_44.setText(_translate("CutSPR", "Melting temp. in °C (overhang for recombination primers | primer)"))
+        self.label_44.setText(_translate("CutSPR", "Melting temp. in °C (overhang | primer)"))
         self.label_26.setText(_translate("CutSPR", "        1,2: sgRNA primer"))
         self.label_6.setText(_translate("CutSPR", ">"))
         self.label_7.setText(_translate("CutSPR", "3"))
@@ -721,7 +733,7 @@ class Ui_CutSPR(object):
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">We will not present exact recipes for the mentioned enzymatic reactions, PCRs or purification steps, as many paths lead to success. Thus, we recommend to study and accurately follow the manufacturer’s instructions of the enzymes and kits present in your lab.</p>\n"
 "<p style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Cloning the sgRNA</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">Adjust primer 1 and 2 to a final concentration of 5 µM. Mix 10 µl of each primer and incubate for 30-60 min at room temperature. Digest ~1 µg of empty vector with BsaI endonuclease. It will result in two fragments. One with a size of ~7.4 kb and another with 371 bp. Purify the bigger fragment via gel-extraction. Ligate about 40 ng of the prepared vector with 1 µl of the primer hybridization using T4-DNA-Ligase. Use the ligation reaction to directly transform chemical competent <span style=\" font-style:italic;\">E. coli</span> cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease EcoRI or BsaI. In case of an empty vector EcoRI will result in three fragments (~3.2 kb, ~4 kb and 200 bp), whereas BsaI will result in two as described above. In case of the desired construct EcoRI digestion results in two fragments (~3 kb and 4 kb) and BsaI has no effect. Positive candidates can be further verified via Sanger sequencing using primer RH003 (5’ACCGAGCGTTCTGAACAAATCC).</p>\n"
-"<p style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Cloning the Deletion-Cassettes</span></p>\n"
+"<p style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Cloning the Deletion-Cassette</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">Amplify the flanks of the target locus by PCR with the respective primers (Primer3 and Primer4 for Flank A<span style=\" color:#0070c0;\"> </span><span style=\" color:#000000;\">and Primer 5 and Primer 6 for Flank B</span>) from your target genome, setting the annealing temperature to 54°C. Use a high fidelity DNA polymerase with proof-reading activity. </p>\n"
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">Verify your PCR products via agarose gel electrophoresis and purify them. Dilute the DNA to a concentration of 0.1 ng/µl. Mix 10 µl of each diluted amplification product and use 1 µl of this mixture as template for PCR with Primer 3 and Primer <span style=\" color:#000000;\">6</span> to create the <span style=\" color:#000000;\">deletion</span><span style=\" color:#0070c0;\">-</span>cassette. Set the annealing temperature to 54°C. Verify the PCR product via gel-electrophoresis. It should reveal a combined product size of both flanks. Purify the PCR product and digest it with SfiI endonuclease. In parallel digest the sgRNA containing vector with SfiI. Purify the linearized 7.4 kb vector via gel- extraction. Use 40 ng of the processed vector and ligate it with the deletion cassette using the T4-DNA-Ligase (~<span style=\" color:#000000;\">40</span> ng in case of a ~<span style=\" color:#000000;\">1</span>.5 kb <span style=\" color:#000000;\">deletion</span>-cassette). Use the ligation reaction to directly transform chemically competent <span style=\" font-style:italic;\">E. coli</span> cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease SalI-XbaI or SfiI. A positive construct should release the recombination-cassette, visible as a separate band in an agarose gel. Verify sequence of your deletion cassette via Sanger sequencing using primer RH001 (<span style=\" font-size:10pt;\">AGCTTAGGCCCAGTCGAAAG</span>), RH002 (<span style=\" font-size:10pt;\">CAGCTAGGAGGTGACTGAAG</span>) and if necessary further primer used for construction.</p>\n"
 "<p style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Transformation of </span><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; font-style:italic; color:#000000;\">B. subtilis</span><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\"> TS01</span></p>\n"
@@ -737,7 +749,7 @@ class Ui_CutSPR(object):
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">We will not present exact recipes for the mentioned enzymatic reactions, PCRs or purification steps, as many paths lead to success. Thus, we recommend to study and accurately follow the manufacturer’s instructions of the enzymes and kits present in your lab.</p>\n"
 "<p style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Cloning the sgRNA</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">Adjust primer 1 and 2 to a final concentration of 5 µM. Mix 10 µl of each primer and incubate for 30-60 min at room temperature. Digest ~1 µg of empty vector with BsaI endonuclease. It will result in two fragments. One with a size of ~7.4 kb and another with 371 bp. Purify the bigger fragment via gel-extraction. Ligate about 40 ng of the prepared vector with 1 µl of the primer hybridization using T4-DNA-Ligase. Use the ligation reaction to directly transform chemical competent <span style=\" font-style:italic;\">E. coli</span> cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease EcoRI or BsaI. In case of an empty vector EcoRI will result in three fragments (~3.2 kb, ~4 kb and 200 bp), whereas BsaI will result in two as described above. In case of the desired construct EcoRI digestion results in two fragments (~3 kb and 4 kb) and BsaI has no effect. Positive candidates can be further verified via Sanger sequencing using primer RH003 (5’ACCGAGCGTTCTGAACAAATCC).</p>\n"
-"<p style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Cloning the Insertion-Cassettes</span></p>\n"
+"<p style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Cloning the Insertion-Cassette</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">Amplify the flanks of the target locus by PCR with the respective primers (Primer3 and Primer4 for Flank A, Primer5 and Primer6 <span style=\" color:#000000;\">for insertion-fragment and Primer 7 and Primer 8 for Flank B</span>) from your target genome, setting the annealing temperature to 54°C. Use a high fidelity DNA polymerase with proof-reading activity. </p>\n"
 "<p style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;\">Verify your PCR products via agarose gel electrophoresis and purify them. Dilute the DNA to a concentration of 0.1 ng/µl. Mix 10 µl of each diluted amplification product and use 1 µl of this mixture as template for PCR with Primer 3 and Primer <span style=\" color:#000000;\">8</span> to create the <span style=\" color:#000000;\">insertion</span><span style=\" color:#0070c0;\">-</span>cassette. Set the annealing temperature to 54°C. Verify the PCR product via gel-electrophoresis. It should reveal a combined product size of both flanks <span style=\" color:#000000;\">and the insertion-fragment</span>. Purify the PCR product and digest it with SfiI endonuclease. In parallel digest the sgRNA containing vector with SfiI. Purify the linearized 7.4 kb vector via gel- extraction. Use 40 ng of the processed vector and ligate it with the <span style=\" color:#000000;\">insertion</span>-cassette using the T4-DNA-Ligase (~<span style=\" color:#000000;\">60</span> ng in case of a ~<span style=\" color:#000000;\">2</span>.5 kb <span style=\" color:#000000;\">insertion</span>-cassette). Use the ligation reaction to directly transform chemically competent <span style=\" font-style:italic;\">E. coli</span> cells and select clones on LB agar plates supplemented with 25-50 µg/ml Kanamycin. Verify your new constructs via restriction analysis with the endonuclease SalI-XbaI or SfiI. A positive construct should release the recombination-cassette, visible as a separate band in an agarose gel. Verify sequence of your deletion cassette via Sanger sequencing using primer RH001 (<span style=\" font-size:10pt;\">AGCTTAGGCCCAGTCGAAAG</span>), RH002 (<span style=\" font-size:10pt;\">CAGCTAGGAGGTGACTGAAG</span>) and if necessary further primer used for construction.</p>\n"
 "<p style=\" margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\">Transformation of </span><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; font-style:italic; color:#000000;\">B. subtilis</span><span style=\" font-family:\'Cambria,serif\'; font-size:13pt; font-weight:600; color:#000000;\"> TS01</span></p>\n"
